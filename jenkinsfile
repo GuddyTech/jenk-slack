@@ -16,7 +16,7 @@ pipeline {
                     channel: '#your-channel',
                     color: 'good',
                     message: "Build ${currentBuild.fullDisplayName} has finished",
-                    credentialsId: 'slack-api-token'
+                    credentialsId: 'slack-api-token1'
                 )
 
                 // Send email notification
