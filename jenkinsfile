@@ -1,4 +1,4 @@
-post {
+post { 
         always {
             // Add post-build actions
             script {
