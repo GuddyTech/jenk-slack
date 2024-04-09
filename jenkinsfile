@@ -1,0 +1,22 @@
+post {
+        always {
+            // Add post-build actions
+            script {
+                // Example: Archive artifacts
+                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+
+                // Example: Send Slack message
+                slackSend(channel: '#your-channel', color: 'good', message: "Build ${currentBuild.fullDisplayName} has finished", credentialsId: 'slack-api-token')
+
+                // Example: Send email notification
+                emailext attachLog: true, body: "Build ${currentBuild.fullDisplayName} has finished", recipientProviders: [developers()], subject: "Build Notification", 
+                     to: "recipient@example.com", // replace with recipient's email address
+                     from: "jenkins@example.com", // replace with sender's email address
+                     replyTo: "reply@example.com", // replace with reply-to email address
+                     mimeType: 'text/html', // specify email content type
+                     cc: "cc@example.com", // replace with cc email address
+                     bcc: "bcc@example.com", // replace with bcc email address
+                     credentialsId: 'smtp-credentials' // replace with your SMTP credentials ID
+            }
+        }
+}
