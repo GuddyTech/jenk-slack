@@ -19,4 +19,4 @@ post {
                      credentialsId: 'smtp-credentials' // replace with your SMTP credentials ID
             }
         }
-}
+} 
