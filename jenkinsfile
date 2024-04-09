@@ -15,7 +15,7 @@ pipeline {
                 slackSend(
                     channel: '#your-channel',
                     color: 'good',
-                    message: "Build ${currentBuild.fullDisplayName} has finished",
+                    message: "Build ${currentBuild.fullDisplayName} has finished with ${currentBuild.result}",
                     credentialsId: 'slack-api-token1'
                 )
 
