@@ -6,7 +6,7 @@ post {
                 archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 
                 // Example: Send Slack message
-                slackSend(channel: '#your-channel', color: 'good', message: "Build ${currentBuild.fullDisplayName} has finished", credentialsId: 'slack-api-token')
+                slackSend(channel: 'troubleshooting', color: 'good', message: "Build ${currentBuild.fullDisplayName} has finished", credentialsId: 'slack-api-token')
 
                 // Example: Send email notification
                 emailext attachLog: true, body: "Build ${currentBuild.fullDisplayName} has finished", recipientProviders: [developers()], subject: "Build Notification", 
